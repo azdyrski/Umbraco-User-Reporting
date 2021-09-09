@@ -1,0 +1,12 @@
+﻿{
+  javascript: [
+    "~/App_Plugins/UserReports/BackOffice/Scripts/UserReports.Config.js",
+    "~/App_Plugins/UserReports/BackOffice/Scripts/UserReports.Resources.js",
+    "~/App_Plugins/UserReports/BackOffice/Scripts/UserReports.Intro.Controller.js",
+    "~/App_Plugins/UserReports/BackOffice/Scripts/UserReports.UserBrowser.Controller.js",
+    "~/App_Plugins/UserReports/BackOffice/Scripts/UserReports.Permissions.Controller.js"
+  ],
+	css: [
+		"~/App_Plugins/UserReports/BackOffice/Css/styles.css"
+	]
+}

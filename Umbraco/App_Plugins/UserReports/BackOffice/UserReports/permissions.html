@@ -1,0 +1,154 @@
+﻿<div ng-controller="UserReports.Permissions.Controller as vm" class="userReports">
+
+    <umb-editor-view footer="model.infiniteMode">
+
+        <user-group-switcher-header heading="Permissions" title="Permissions" on-groups="vm.showGroups()" groups-active="vm.showingGroups" on-users="vm.showUsers()" users-active="!vm.showingGroups" on-reload="vm.reload()"></user-group-switcher-header>
+
+            <umb-editor-container>
+
+                <umb-box>
+                    <umb-box-content>
+                        
+                        <div class="flex search-box">
+                            <div class="flex-auto">
+                                <input type="search" id="search-user" ng-model="vm.filter.searchTerm" placeholder="Search Name" class="search-input" ng-keydown="$event.keyCode === 13 && vm.search()" >
+                            </div>
+                            <!-- Search Button -->
+                            <umb-button button-style="action"
+                                    type="submit"
+                                    ng-click="vm.search()"
+                                    label-key="general_search">
+                            </umb-button>
+                        </div>
+                    </umb-box-content>
+                </umb-box>
+    
+                <umb-load-indicator ng-show="vm.isLoading"></umb-load-indicator>
+                <div ng-if="vm.showingGroups">
+                    <div ng-repeat="r in vm.items">
+                        <umb-box>
+                            <div class="umb-box-header box-opener flex">
+                                <div class="span12" ng-click="r.IsOpen = !r.IsOpen">
+                                    <h4><i class="{{ r.Icon }}"></i>&nbsp;{{ r.Name }}</h4>
+                                    <div><strong>{{ r.UserCount }}</strong> Users. <strong>{{ r.Permissions.MostPermissiveAction }}</strong> for <strong>{{ r.Permissions.MostPermissiveEffected }}</strong> content nodes. <strong>{{ r.Permissions.EffectedMediaNodes }}</strong> media nodes accessible.</div>
+                                </div>
+                                <div>
+                                    <button type="button" ng-click="vm.openGroup(r.Id)" title="Edit group {{ r.Name }}" aria-label="Edit {{r.Name}}" class="btn btn-action">Edit</button>
+                                </div>
+                            </div>
+                            <umb-box-content ng-if="r.IsOpen">
+                                <div class="row">
+                                    <div>
+                                        <strong>Allowed Sections:</strong> {{ vm.getAllowedSectionList(r) }} 
+                                    </div>
+                                    <div ng-if="r.Permissions.StartContent">
+                                        <strong>Start Content:</strong> <i class="{{ r.Permissions.StartContent.Icon }}"></i>&nbsp;<a target="_blank" href="{{ vm.getStartNodeLink(r.Permissions.StartContent, false) }}">{{ r.Permissions.StartContent.Name }}</a>
+                                    </div>
+                                    <div class="text-error" ng-if="!r.Permissions.StartContent">
+                                        <em>No Start Content Selected</em>
+                                    </div>
+                                    <div ng-if="r.Permissions.StartMedia">
+                                        <strong>Start Media:</strong> <i class="{{ r.Permissions.StartMedia.Icon }}"></i>&nbsp;<a target="_blank" href="{{ vm.getStartNodeLink(r.Permissions.StartMedia, true) }}">{{ r.Permissions.StartMedia.Name }}</a>
+                                    </div>
+                                    <div class="text-error" ng-if="!r.Permissions.StartMedia">
+                                        <em>No Start Media Selected</em>
+                                    </div>
+                                    <div ng-if="!r.Permissions.HasExplicitPermissions">
+                                        <span ng-if="r.Permissions.Actions && r.Permissions.Actions.length > 0">
+                                            <strong>Actions:</strong> {{ vm.getActionsList(r) }} for <strong>{{ r.Permissions.Actions[0].ContentNodesEffected}}</strong> nodes
+                                        </span>
+                                        <span ng-if="!r.Permissions.Actions || r.Permissions.Actions.length == 0">
+                                            <strong>Actions:</strong> None
+                                        </span>
+                                    </div>
+                                    
+                                    <div ng-if="r.Permissions.HasExplicitPermissions">
+                                        <strong>Actions</strong> (Has Explicit Permissions): 
+                                        <ul>
+                                            <li ng-repeat="action in r.Permissions.Actions">
+                                                <strong>{{ action.Name }}</strong> for <strong>{{ action.ContentNodesEffected }}</strong> nodes
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </umb-box-content>
+                        </umb-box>
+                    </div>
+                </div>
+                <div ng-if="!vm.showingGroups">
+                    <div ng-repeat="r in vm.items">
+                        <umb-box>
+                            <div class="umb-box-header box-opener flex">
+                                <div class="span12" ng-click="r.IsOpen = !r.IsOpen">
+                                    <h4><span class="umb-user-card__avatar"><umb-avatar size="s" color="secondary" name="{{r.Name}}" ></umb-avatar></span>&nbsp;{{ r.Name }}&nbsp;<small>{{ r.Email }}</small></h4>
+                                    <div><strong>{{ r.Groups && r.Groups.length > 0 ? r.Groups.length : 0 }}</strong> Groups. <strong>{{ r.Permissions.MostPermissiveAction }}</strong> for <strong>{{ r.Permissions.MostPermissiveEffected }}</strong> content nodes. <strong>{{ r.Permissions.EffectedMediaNodes }}</strong> media nodes accessible.</div>
+                                </div>
+                                <div>
+                                    <a type="button" target="_blank" href="/umbraco/#/users/users/user/{{ r.Id }}" title="Edit user {{ r.Name }}" aria-label="Edit {{r.Name}}" class="btn btn-action">Edit</a>
+                                </div>
+                            </div>
+        
+                            <umb-box-content ng-if="r.IsOpen">
+        
+                                <div class="row">
+                                    <div class="row">
+                                        <div>
+                                            <strong>Member of Groups:</strong> {{ vm.getUserGroupList(r) }}
+                                        </div>
+                                        <div>
+                                            <strong>Allowed Sections:</strong> {{ vm.getAllowedSectionList(r) }} 
+                                        </div>
+                                        <div ng-if="r.Permissions.StartContent">
+                                            <strong>Start Content:</strong> <i class="{{ r.Permissions.StartContent.Icon }}"></i>&nbsp;<a target="_blank" href="{{ vm.getStartNodeLink(r.Permissions.StartContent, false) }}">{{ r.Permissions.StartContent.Name }}</a>
+                                        </div>
+                                        <div class="text-error" ng-if="!r.Permissions.StartContent">
+                                            <em>No Start Content Selected</em>
+                                        </div>
+                                        <div ng-if="r.Permissions.StartMedia">
+                                            <strong>Start Media:</strong> <i class="{{ r.Permissions.StartMedia.Icon }}"></i>&nbsp;<a target="_blank" href="{{ vm.getStartNodeLink(r.Permissions.StartMedia, true) }}">{{ r.Permissions.StartMedia.Name }}</a>
+                                        </div>
+                                        <div class="text-error" ng-if="!r.Permissions.StartMedia">
+                                            <em>No Start Media Selected</em>
+                                        </div>
+                                        <div ng-if="!r.Permissions.HasExplicitPermissions">
+                                            <span ng-if="r.Permissions.Actions && r.Permissions.Actions.length > 0">
+                                                <strong>Actions:</strong> {{ vm.getActionsList(r) }} for <strong>{{ r.Permissions.Actions[0].ContentNodesEffected}}</strong> nodes
+                                            </span>
+                                            <span ng-if="!r.Permissions.Actions || r.Permissions.Actions.length == 0">
+                                                <strong>Actions:</strong> None
+                                            </span>
+                                        </div>
+                                        
+                                        <div ng-if="r.Permissions.HasExplicitPermissions">
+                                            <strong>Actions</strong> (Has Explicit Permissions): 
+                                            <ul>
+                                                <li ng-repeat="action in r.Permissions.Actions">
+                                                    <strong>{{ action.Name }}</strong> for <strong>{{ action.ContentNodesEffected }}</strong> nodes
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </umb-box-content>
+                        </umb-box>
+                    </div>
+                </div>
+                
+            </umb-editor-container>
+            <umb-editor-footer ng-if="model.infiniteMode">
+    
+                <umb-editor-footer-content-right>
+                    <umb-button type="button"
+                                button-style="link"
+                                label-key="general_close"
+                                shortcut="esc"
+                                action="model.close()">
+                    </umb-button>
+                </umb-editor-footer-content-right>
+    
+            </umb-editor-footer>
+    </umb-editor-view>
+
+</div>

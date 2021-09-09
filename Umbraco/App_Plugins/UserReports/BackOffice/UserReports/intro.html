@@ -1,0 +1,34 @@
+﻿<div ng-controller="UserReports.Intro.Controller as vm" class="userReports">
+
+    <umb-editor-view footer="false" header="false">
+
+        <div class="umb-pane">
+            <umb-box>
+                <umb-box-content>
+                    <h1><span class="color-indigo icon icon-users"></span> Umbraco User Reporting</h1>
+
+                    <p class="muted">Metrics about your back office users and permissions</p>
+
+                </umb-box-content>
+            </umb-box>
+            <umb-box>
+                <umb-box-content>
+                    <table class="table">
+                        <tr>
+                            <th style="width:20%">Action</th>
+                            <th style="width:80%">Description</th>
+                        </tr>
+                        <tr ng-repeat="page in vm.pages">
+                            <td>
+                                <strong><a href="{{vm.config.baseViewUrl}}{{page.url}}">{{page.name}}</a></strong>
+                            </td>
+                            <td>
+                                {{page.desc}}
+                            </td>
+                        </tr>
+                    </table>
+                </umb-box-content>
+            </umb-box>
+        </div>
+    </umb-editor-view>
+</div>

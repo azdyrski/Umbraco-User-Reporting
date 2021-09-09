@@ -1,0 +1,99 @@
+﻿.userReports .umb-panel-header {
+    position: relative !important;
+}
+
+.userReports .umb-panel-header-icon {
+    cursor: default;
+    border: none;
+}
+
+.userReports input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+}
+
+.userReports .box-opener {
+    cursor: pointer;
+}
+
+    .userReports .box-opener:hover {
+        cursor: pointer;
+        border-bottom: 1px solid #c9c9cb;
+        box-shadow: 0 8px 6px -6px #c9c9cb;
+    }
+
+.userReports .umb-box-content table th {
+    background-color: #eee;
+}
+
+.userReports table tbody button {
+    text-align:left;
+    background:none;
+    padding:0;
+    margin:0;
+    border:0;
+    display:inline;
+    font:inherit;
+    text-decoration: underline;
+    text-decoration-color: #aaa;
+}
+
+    .userReports table tbody button:hover {
+        text-decoration: underline;
+        text-decoration-color: #2bc37c;
+    }
+
+.userReports table tbody td code {
+    font-size: smaller;
+}
+
+.userReports .true-false {
+    color: #bbbabf;
+}
+
+.userReports .user-reporting-title {
+    font-size: 120%;
+    transition: all 0.7s ease;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.userReports .add-on .icon-delete {
+    color: #aaa;
+    cursor: pointer;
+}
+
+    .userReports .add-on .icon-delete:hover {
+        cursor: pointer;
+        color: #000;
+    }
+
+.userReports .dropdown-item {
+    padding: 8px 20px 8px 16px;
+}
+
+.userReports .userGroups .dropdown-menu {
+    height:600px;
+    overflow-y: scroll;
+}
+
+.userReports .search-box .flex-auto .search-input {
+    width: 100%;
+}
+
+.userReports .search-box {
+    padding-top: 10px;
+}
+
+.userReports .umb-filter .umb-filter__label {
+    max-width: 60%;
+}
+
+.userReports .umb-filter.userState .umb-filter__label {
+    max-width: 80%;
+}
+
+.userReports .umb-user-card__avatar
+{
+    float:left;
+    padding-right: 5px;
+}
