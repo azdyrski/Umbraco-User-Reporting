@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>Umbraco User Reporting</name>
+      <version>1.0.0</version>
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>https://github.com/azdyrski/Umbraco-User-Reporting</url>
+      <requirements type="Strict">
+        <major>8</major>
+        <minor>14</minor>
+        <patch>1</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Andrew Zdyrski</name>
+      <website>https://github.com/azdyrski/Umbraco-User-Reporting</website>
+    </author>
+    <contributors>
+    </contributors>
+    <readme>
+      <![CDATA[
+            v1.0.0 initial release
+]]>
+    </readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions />
+  <control />
+  <files />
+</umbPackage>

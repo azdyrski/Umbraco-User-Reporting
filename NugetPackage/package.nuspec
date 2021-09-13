@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package -->
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>azdyrski.Umbraco-User-Reporting</id>
+    <version>1.0.0</version>
+    <title>Umbraco User Reporting</title>
+    <authors>Andrew Zdyrski</authors>
+    <owners>Andrew Zdyrski</owners>
+    <projectUrl>https://github.com/azdyrski/Umbraco-User-Reporting</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Metrics about your Umbraco Back Office Users, Groups, and Permissions
+    </description>
+    <releaseNotes>
+      Initial Release v1.0.0
+    </releaseNotes>
+    <summary>
+      Metrics about your Umbraco Back Office Users, Groups, and Permissions
+    </summary>
+    <copyright>Andrew Zdyrski</copyright>
+    <license type="expression">MIT</license>
+    <repository type="git" url="https://github.com/azdyrski/Umbraco-User-Reporting" />
+    <language>en-US</language>
+    <tags>umbraco umbraco8 developer backoffice reports users</tags>
+    <dependencies>
+      <dependency id="UmbracoCms.Core" version="8.14.1" />
+    </dependencies>
+  </metadata>
+</package>
