@@ -20,7 +20,9 @@
     </contributors>
     <readme>
       <![CDATA[
-            v1.0.0 initial release
+    <p>Umbraco User Reporting</p>
+    <p>Metrics and reporting tools about your Umbraco Back Office Users, Groups, and Permissions</p>
+    <p>This plugin for Umbraco 8 will create a new tree item in the Settings section of the Umbraco Back Office.  It offers a variety of views of the your Back Office users, groups, and content permissions.</p>
 ]]>
     </readme>
   </info>
