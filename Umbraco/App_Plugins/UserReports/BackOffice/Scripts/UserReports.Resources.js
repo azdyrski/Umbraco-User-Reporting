@@ -81,6 +81,8 @@
             getInitialUserStates: function () {
                 return [
                     { name: 'Active', value: 'active', selected: true, colorLabel: 'success' },
+                    { name: 'Invited', value: 'locked', selected: true, colorLabel: 'success' },
+                    { name: 'Inactive', value: 'inactive', selected: true, colorLabel: 'warning' },
                     { name: 'Locked', value: 'locked', selected: true, colorLabel: 'warning' },
                     { name: 'Disabled', value: 'disabled', selected: true, colorLabel: 'danger' }
                 ]

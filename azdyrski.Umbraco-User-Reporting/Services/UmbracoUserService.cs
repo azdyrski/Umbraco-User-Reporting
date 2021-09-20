@@ -99,6 +99,10 @@ namespace azdyrski.Umbraco.UserReports.Services
                     return UserState.LockedOut;
                 case "disabled":
                     return UserState.Disabled;
+                case "inactive":
+                    return UserState.Inactive;
+                case "invited":
+                    return UserState.Invited;
                 default:
                     return UserState.All;
             }
