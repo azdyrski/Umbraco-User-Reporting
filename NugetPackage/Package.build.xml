@@ -16,7 +16,7 @@
 
   <!-- PROPERTIES -->
   <PropertyGroup >
-    <BasePackageVersion>1.0.0.0</BasePackageVersion>
+    <BasePackageVersion>1.0.1.0</BasePackageVersion>
     <VersionSuffix></VersionSuffix>
     <MinUmbracoVersion>8.14.1</MinUmbracoVersion>
   </PropertyGroup>
@@ -64,6 +64,8 @@
   <Target Name="PrepairFiles" DependsOnTargets="Compile">
     <ItemGroup>
       <CoreBinFile Include="$(CoreProjectDir)\Bin\Release\azdyrski.Umbraco-User-Reporting.dll" />
+      <CoreBinFile Include="$(CoreProjectDir)\Bin\Release\EPPlus.dll" />
+      <CoreBinFile Include="$(CoreProjectDir)\Bin\Release\EPPlus.xml" />
       <PackageFile Include="$(MSBuildProjectDirectory)\Package.xml" />
       <NuSpecFile Include="$(MSBuildProjectDirectory)\package.nuspec" />
       <AppPluginFiles Include="$(PropertyEditorProjectDir)\**\*" />

@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>azdyrski.Umbraco-User-Reporting</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>Umbraco User Reporting</title>
     <authors>Andrew Zdyrski</authors>
     <owners>Andrew Zdyrski</owners>
@@ -13,7 +13,7 @@
       Metrics about your Umbraco Back Office Users, Groups, and Permissions
     </description>
     <releaseNotes>
-      Initial Release v1.0.0
+      v1.0.1 - Fix EPPlus dependency not getting included for export
     </releaseNotes>
     <summary>
       Metrics about your Umbraco Back Office Users, Groups, and Permissions
@@ -25,6 +25,7 @@
     <tags>umbraco umbraco8 developer backoffice reports users</tags>
     <dependencies>
       <dependency id="UmbracoCms.Core" version="8.14.1" />
+      <dependency id="EPPlus" version="4.1.0" />
     </dependencies>
   </metadata>
 </package>
