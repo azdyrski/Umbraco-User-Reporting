@@ -3,7 +3,7 @@
   <info>
     <package>
       <name>Umbraco User Reporting</name>
-      <version>1.0.2</version>
+      <version>1.0.3</version>
       <license url="http://opensource.org/licenses/MIT">MIT License</license>
       <url>https://github.com/azdyrski/Umbraco-User-Reporting</url>
       <requirements type="Strict">

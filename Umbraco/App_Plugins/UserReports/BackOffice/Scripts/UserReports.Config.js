@@ -6,7 +6,7 @@
             "permissionsApiUrl": "BackOffice/Api/PermissionsApi/",
             "auditsApiUrl": "BackOffice/Api/UserAuditsApi/",
             "config": {
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "editGroupUrl": "#/users/users/group/",
                 "editUserUrl": "#/users/users/user/",
                 "baseTreeUrl": "#/settings/userReports/",
