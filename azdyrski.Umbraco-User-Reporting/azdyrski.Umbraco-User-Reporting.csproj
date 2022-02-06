@@ -250,11 +250,15 @@
   <ItemGroup>
     <Compile Include="Composers\UserReportsComposer.cs" />
     <Compile Include="Controllers\PermissionsApiController.cs" />
+    <Compile Include="Controllers\UserAuditsApiController.cs" />
     <Compile Include="Controllers\UserReportsApiController.cs" />
     <Compile Include="Controllers\UserReportsTreeController.cs" />
     <Compile Include="Interfaces\IUmbracoGroupService.cs" />
     <Compile Include="Interfaces\IUmbracoUserService.cs" />
+    <Compile Include="Interfaces\IUserAuditService.cs" />
+    <Compile Include="Models\AuditFilter.cs" />
     <Compile Include="Models\Permissions.cs" />
+    <Compile Include="Models\UmbracoAudit.cs" />
     <Compile Include="Models\UmbracoGroup.cs" />
     <Compile Include="Models\UmbracoNode.cs" />
     <Compile Include="Models\UmbracoUser.cs" />
@@ -262,6 +266,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UmbracoGroupService.cs" />
     <Compile Include="Services\UmbracoUserService.cs" />
+    <Compile Include="Services\UserAuditService.cs" />
     <Compile Include="UserReportsSettings.cs" />
   </ItemGroup>
   <ItemGroup>

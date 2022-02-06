@@ -76,6 +76,11 @@
     overflow-y: scroll;
 }
 
+.userReports .auditTypes .dropdown-menu {
+    height: 600px;
+    overflow-y: scroll;
+}
+
 .userReports .search-box .flex-auto .search-input {
     width: 100%;
 }
@@ -88,6 +93,10 @@
     max-width: 60%;
 }
 
+.userReports .umb-filter.userState.auditType .umb-filter__label {
+    max-width: 25%;
+}
+
 .userReports .umb-filter.userState .umb-filter__label {
     max-width: 80%;
 }
@@ -96,4 +105,8 @@
 {
     float:left;
     padding-right: 5px;
+}
+
+.userReports .umb-filter.dropdown {
+    padding-right: 10px;
 }

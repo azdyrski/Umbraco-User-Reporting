@@ -107,7 +107,7 @@
             vm.exportCsv = function () {
                 vm.isLoading = true;
                 userReportsResources.exportUsersCsv(vm.selectedColumns, vm.filter, vm.sort.column, !vm.sort.reverse).then(function (data)  {
-                    userReportsResources.downloadFile(data, 'csv', 'csv');
+                    userReportsResources.downloadFile(data, 'csv', 'userReports', 'csv');
                     vm.isLoading = false;
                 });
             };
@@ -115,7 +115,7 @@
             vm.exportExcel = function () {
                 vm.isLoading = true;
                 userReportsResources.exportUsersExcel(vm.selectedColumns, vm.filter, vm.sort.column, !vm.sort.reverse).then(function (data)  {
-                    userReportsResources.downloadExcel(data, 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'xlsx');
+                    userReportsResources.downloadExcel(data, 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'userReports', 'xlsx');
                     vm.isLoading = false;
                 });
             };

@@ -12,6 +12,7 @@ namespace azdyrski.Umbraco.UserReports.Composers
         {
             composition.Register<IUmbracoUserService, UmbracoUserService>();
             composition.Register<IUmbracoGroupService, UmbracoGroupService>();
+            composition.Register<IUserAuditService, UserAuditService>();
         }
     }
 }

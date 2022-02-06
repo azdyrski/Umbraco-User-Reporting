@@ -4,6 +4,7 @@
         .constant("userReportsConfig", {
             "baseApiUrl": "BackOffice/Api/UserReportsApi/",
             "permissionsApiUrl": "BackOffice/Api/PermissionsApi/",
+            "auditsApiUrl": "BackOffice/Api/UserAuditsApi/",
             "config": {
                 "version": "1.0.2",
                 "editGroupUrl": "#/users/users/group/",

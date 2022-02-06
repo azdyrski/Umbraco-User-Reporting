@@ -78,6 +78,18 @@ namespace azdyrski.Umbraco.UserReports.Services
             }
             return users.Items;
         }
+
+        public List<UmbracoUser> GetAuditUsers()
+        {
+            var filter = new UserFilter
+            {
+                SearchTerm = string.Empty,
+                Groups = new FilterGroup[0],
+                UserStates = new FilterUserState[0]
+            };
+            var users = GetUsers(1, int.MaxValue, filter, "Name", true);
+            return users.Items;
+        }
         #region Private Helper Methods
         private UserState[] GetUserStates(FilterUserState[] filterUserStates)
         {

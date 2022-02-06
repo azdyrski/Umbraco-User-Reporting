@@ -10,7 +10,7 @@ using Umbraco.Web.WebApi.Filters;
 namespace azdyrski.Umbraco.UserReports.Controllers
 {
     /// <summary>
-    /// Custom Umbraco tree for GodMode under the Developer section of Umbraco
+    /// Custom Umbraco tree for User Reports under the Developer section of Umbraco
     /// </summary>
     [Tree(Constants.Applications.Settings, treeAlias: UserReportsSettings.TreeAlias, TreeTitle = "User Reporting", TreeGroup = Constants.Trees.Groups.ThirdParty, SortOrder = 12)]
     [UmbracoApplicationAuthorize(Constants.Applications.Settings)]
@@ -90,8 +90,7 @@ namespace azdyrski.Umbraco.UserReports.Controllers
             {
                 CreateTreeNode("userBrowser", parentId, qs, "User Browser", "icon-umb-members", false, baseUrl + "userBrowser"),
                 CreateTreeNode("permissions", parentId, qs, "Permissions", "icon-autofill", false, baseUrl + "permissions"),
-                CreateTreeNode("permissionsByContent", parentId, qs, "Permissions by Content", "icon-article", false, baseUrl + "permissionsByContent"),
-                CreateTreeNode("userActivity", parentId, qs, "User Activity", "icon-chart-curve", false, baseUrl + "userActivity")
+                CreateTreeNode("userAudits", parentId, qs, "User Audits", "icon-chart-curve", false, baseUrl + "userAudits")
             };
 
             return tree;

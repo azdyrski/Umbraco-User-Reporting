@@ -11,8 +11,7 @@
             vm.pages = [
                 { name: "User Browser", url: "userBrowser", desc: "Browse, filter, and export your Umbraco Back Office users" },
                 { name: "Permissions", url: "permissions", desc: "View Permissions of your Users and Groups" },
-                { name: "Permissions by Content", url: "permissionsByContent", desc: "Browse User Permissions based Content" },
-                { name: "User Activity", url: "userActivity", desc: "View and Export metrics about your Users' Back Office activity" }
+                { name: "User Audits", url: "userAudits", desc: "View and Export metrics about your Users' Back Office activity" }
             ];
 
         });

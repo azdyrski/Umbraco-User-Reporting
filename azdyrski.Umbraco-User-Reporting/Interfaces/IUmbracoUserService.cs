@@ -10,5 +10,6 @@ namespace azdyrski.Umbraco.UserReports.Interfaces
     {
         Page<UmbracoUser> GetUsers(long page, long itemsPerPage, UserFilter filter, string orderBy = "Name", bool ascending = true);
         List<UmbracoUser> GetUsersWithPermissions(UserFilter filter, string orderBy = "Name", bool ascending = true);
+        List<UmbracoUser> GetAuditUsers();
     }
 }

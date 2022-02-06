@@ -1,0 +1,108 @@
+﻿<div ng-controller="UserReports.UserAudits.Controller as vm" class="userReports">
+
+    <umb-editor-view footer="model.infiniteMode">
+
+        <export-header heading="User Audits" title="User Audits" export-excel="vm.exportExcel()" export-csv="vm.exportCsv()" on-reload="vm.reload()"></export-header>
+
+        <umb-editor-container>
+
+            <umb-box>
+                <umb-box-content>
+
+                    <div class="flex">
+                        <div class="umb-filter dropdown">
+                            <label class="control-label" for="selectedUser" title="Selected User">User:</label>
+                            <select id="selectedUser" ng-model="vm.filter.selectedUserId" ng-options="user.Id as user.Name for user in vm.users" class="input-medium" ng-change="vm.auditUserChange()">
+                            </select>
+                        </div>
+                        <div class="umb-filter dropdown">
+                            <label class="control-label" for="selectedUser" title="Selected User">Audit Type:</label>
+                            <select id="selectedUser" ng-model="vm.filter.selectedAuditTypes" ng-options="auditType.name for auditType in vm.auditTypes" class="input-medium" ng-change="vm.auditUserChange()">
+                                <option label="All" value="" selected="selected">All</option>
+                            </select>
+                        </div>
+                        <div class="umb-filter">
+                            <button type="button"
+                                    class="btn btn-link dropdown-toggle umb-filter__toggle"
+                                    ng-click="vm.page.showLevelFilter = !vm.page.showLevelFilter"
+                                    aria-haspopup="true"
+                                    aria-expanded="{{vm.page.showLevelFilter === undefined ? false : vm.page.showLevelFilter}}">
+
+                                <span>Selected Fields:</span>
+                                <span class="bold truncate dib umb-filter__label">{{ vm.getColName(vm.columns) }}</span>
+                                <span class="caret" aria-hidden="true"></span>
+                            </button>
+                            <umb-dropdown class="pull-left" ng-if="vm.page.showLevelFilter" on-close="vm.page.showLevelFilter = false;">
+                                <umb-dropdown-item ng-repeat="column in vm.columns" class="dropdown-item">
+                                    <div class="flex items-center">
+                                        <umb-checkbox input-id="col-{{$index}}"
+                                                      name="colSelect"
+                                                      model="column.selected"
+                                                      on-change="vm.setColumnFilter(column)">
+                                        </umb-checkbox>
+                                        <label for="colSelect-{{$index}}">
+                                            <umb-badge size="s" color="success">{{column.colName}}</umb-badge>
+                                        </label>
+                                    </div>
+                                </umb-dropdown-item>
+                            </umb-dropdown>
+                        </div>
+                    </div>
+                </umb-box-content>
+            </umb-box>
+
+            <umb-load-indicator ng-show="vm.isLoading"></umb-load-indicator>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th ng-repeat="c in vm.selectedColumns | filter:{selected: true}" scope="col">
+                            <user-reports-sortable ng-if="c.sortable" sort-by="vm.sortBy(c.valueName)" column="c.valueName" sort="vm.sort">{{ c.colName }}</user-reports-sortable>
+                            <span ng-if="!c.sortable">{{ c.colName }}</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row" ng-repeat="audit in vm.page.Items">
+                        <td ng-repeat="c in vm.selectedColumns | filter:{selected: true}">{{ vm.getTableValue(c.valueName, audit) }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="8">
+                            <div class="pagination pagination-centered" ng-show="vm.page.TotalPages > 1">
+                                <umb-pagination page-number="vm.page.CurrentPage"
+                                                total-pages="vm.page.TotalPages"
+                                                on-next="vm.nextPage"
+                                                on-prev="vm.prevPage"
+                                                on-go-to-page="vm.setPage">
+                                </umb-pagination>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr ng-hide="vm.isLoading || vm.page.Items.length > 0">
+                        <td colspan="8">
+                            <p class="text-center"><strong>Sorry, no content was found for your selected criteria.</strong></p>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </umb-editor-container>
+        <umb-editor-footer ng-if="model.infiniteMode">
+
+            <umb-editor-footer-content-right>
+                <umb-button type="button"
+                            button-style="link"
+                            label-key="general_close"
+                            shortcut="esc"
+                            action="model.close()">
+                </umb-button>
+            </umb-editor-footer-content-right>
+
+        </umb-editor-footer>
+
+    </umb-editor-view>
+
+</div>
