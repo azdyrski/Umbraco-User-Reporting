@@ -22,6 +22,8 @@ namespace azdyrski.Umbraco.UserReports.Models
         [DataMember]
         public string EntityType { get; set; }
         [DataMember]
+        public string EntityId { get; set; }
+        [DataMember]
         public string AuditDate { get; set; } 
 
 

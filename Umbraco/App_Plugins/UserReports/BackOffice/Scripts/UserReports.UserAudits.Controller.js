@@ -170,6 +170,8 @@
                         return auditModel.AuditType;
                     case 'EntityType':
                         return auditModel.EntityType;
+                    case 'EntityId':
+                        return auditModel.EntityId == "0" || auditModel.EntityId == "-1" ? "N/A" : auditModel.EntityId;
                     case 'AuditDate':
                         return auditModel.AuditDate;
                     default:

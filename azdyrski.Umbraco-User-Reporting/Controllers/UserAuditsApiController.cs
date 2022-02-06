@@ -167,6 +167,8 @@ namespace azdyrski.Umbraco.UserReports.Controllers
                     return audit.AuditType;
                 case "Entity Type":
                     return audit.EntityType;
+                case "Entity ID":
+                    return audit.EntityId == "0" || audit.EntityId == "-1" ? "N/A" : audit.EntityId;
                 case "Event Date":
                     return audit.AuditDate;
                 default:

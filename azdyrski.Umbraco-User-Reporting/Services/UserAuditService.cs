@@ -36,7 +36,6 @@ namespace azdyrski.Umbraco.UserReports.Services
         {
             var result = new Page<UmbracoAudit>() { Items = new List<UmbracoAudit>(), CurrentPage = page, ItemsPerPage = itemsPerPage };
             long totalRecords = 0;
-
             var auditResult = auditService.GetPagedItemsByUser(filter.SelectedUserId, page - 1, (int)itemsPerPage, out totalRecords, ascending ? Direction.Ascending : Direction.Descending, filter.UmbracoAuditTypes);
             foreach (var audit in auditResult)
             {
@@ -104,7 +103,7 @@ namespace azdyrski.Umbraco.UserReports.Services
 
         private UmbracoAudit GetAuditModel(IAuditItem auditItem)
         {
-            var model = new UmbracoAudit() { CoreEntry = auditItem, Comment = auditItem.Comment, Parameters = auditItem.Parameters, UserId = auditItem.UserId, EntityType = auditItem.EntityType, AuditDate = auditItem.CreateDate.ToString("MMM d yyyy HH:mm") };
+            var model = new UmbracoAudit() { CoreEntry = auditItem, Comment = auditItem.Comment, Parameters = auditItem.Parameters, UserId = auditItem.UserId, EntityType = auditItem.EntityType, EntityId = auditItem.Id.ToString(), AuditDate = auditItem.CreateDate.ToString("MMM d yyyy HH:mm") };
             model.UserEmail = userService.GetUserById(auditItem.UserId).Email;
             model.AuditType = GetAuditTypeString(auditItem.AuditType);
             return model;

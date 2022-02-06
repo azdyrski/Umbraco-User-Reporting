@@ -171,9 +171,10 @@
                     { valueName: 'UserId', colName: 'User ID', sortable: false, arrayValue: false, selected: true },
                     { valueName: 'UserEmail', colName: 'User Email', sortable: false, arrayValue: false, selected: true },
                     { valueName: 'Comment', colName: 'Comment', sortable: false, arrayValue: false, selected: true },
-                    { valueName: 'Parameters', colName: 'Parameters', sortable: false, arrayValue: false, selected: true },
+                    { valueName: 'Parameters', colName: 'Parameters', sortable: false, arrayValue: false, selected: false },
                     { valueName: 'AuditType', colName: 'Audit Type', sortable: false, arrayValue: false, selected: true },
                     { valueName: 'EntityType', colName: 'Entity Type', sortable: false, arrayValue: false, selected: true },
+                    { valueName: 'EntityId', colName: 'Entity ID', sortable: false, arrayValue: false, selected: true },
                     { valueName: 'AuditDate', colName: 'Event Date', sortable: true, arrayValue: false, selected: true }
                 ];
             }
